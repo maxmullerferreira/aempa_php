@@ -4,7 +4,7 @@ include('../config/config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['usuario_id'])){
-    header("Location: login_acesso.php");
+    header("Location: login.php");
     exit;
 }
 

@@ -1,13 +1,3 @@
-<?php
-session_start();
-
-// Bloqueia acesso se não estiver logado
-if(!isset($_SESSION['usuario_id'])){
-    header("Location: login.php");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
