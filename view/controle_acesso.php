@@ -30,8 +30,8 @@ if(!isset($_SESSION['nivel_acesso']) || $_SESSION['nivel_acesso'] != 1){
       <h2>AEMPA</h2>
       <nav>
         <ul>
-          <li><a href="dashboard.php">Dashboard</a></li>
-          <li><a href="logout.php">Logout</a></li>
+          <li><a href="dashboard.php">📊 Dashboard</a></li>
+          <li><a href="logout.php">🚪 Logout</a></li>
         </ul>
       </nav>
     </aside>

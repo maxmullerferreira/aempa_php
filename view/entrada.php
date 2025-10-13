@@ -32,8 +32,8 @@ if(isset($_POST['nome_completo'])){
       <h2>AEMPA</h2>
       <nav>
         <ul>
-          <li><a href="dashboard.php">Dashboard</a></li>
-          <li><a href="logout.php">logout</a></li>
+          <li><a href="dashboard.php">📊 Dashboard</a></li>
+          <li><a href="logout.php">🚪 Logout</a></li>
         </ul>
       </nav>
     </aside>

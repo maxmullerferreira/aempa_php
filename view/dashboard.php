@@ -16,9 +16,10 @@
       <h2>Portal Administrativo</h2>
       <nav>
         <ul>
-          <li><a href="lista_associados.php">Associados</a></li>
-          <li><a href="entrada.php">Financeiro</a></li>
-          <li><a href="saldo.php">Saldo disponível</a></li>
+          <li><a href="lista_associados.php">📋 Associados</a></li>
+          <li><a href="entrada.php">💰 Financeiro</a></li>
+          <li><a href="saldo.php">💳 Saldo disponível</a></li>
+          <li><a href="logout.php">🚪 Logout</a></li>
         </ul>
       </nav>
     </aside>
