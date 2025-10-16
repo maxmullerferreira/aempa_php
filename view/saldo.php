@@ -39,20 +39,24 @@ $saldo_disponivel = $total_entradas - $total_saidas;
       </ul>
     </nav>
   </aside>
+  
+  <main class="main-content">
+    <section>
+      <!-- CONTEÚDO PRINCIPAL -->
+      <div class="saldo-container">
+        <div class="saldo-card">
+          <h2>💰 Saldo Disponível</h2>
+          <p class="valor <?= ($saldo_disponivel < 0) ? 'negativo' : 'positivo' ?>">
+            R$ <?= number_format($saldo_disponivel, 2, ',', '.') ?>
+          </p>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <div class="saldo-container">
-    <div class="saldo-card">
-      <h2>💰 Saldo Disponível</h2>
-      <p class="valor <?= ($saldo_disponivel < 0) ? 'negativo' : 'positivo' ?>">
-        R$ <?= number_format($saldo_disponivel, 2, ',', '.') ?>
-      </p>
-
-      <div class="saldo-info">
-        <p><strong>Total de Entradas:</strong> R$ <?= number_format($total_entradas, 2, ',', '.') ?></p>
-        <p><strong>Total de Saídas:</strong> R$ <?= number_format($total_saidas, 2, ',', '.') ?></p>
+          <div class="saldo-info">
+            <p><strong>Total de Entradas:</strong> R$ <?= number_format($total_entradas, 2, ',', '.') ?></p>
+            <p><strong>Total de Saídas:</strong> R$ <?= number_format($total_saidas, 2, ',', '.') ?></p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </body>
 </html>
