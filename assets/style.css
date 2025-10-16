@@ -68,17 +68,7 @@ body {
 
 
 /* ====== TOPO ====== */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
 
-.topbar h1 {
-  font-size: 1.5rem;
-  color: #333;
-}
 
 .novo-btn {
   display: inline-block;
@@ -109,30 +99,35 @@ body {
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  overflow-x: auto; /* rolagem se a tabela for larga */
 }
 
 .styled-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* importante para colar as bordas */
+  border: 1% solid black; /* borda externa */
+  font-size: 15px;
 }
 
-.styled-table th, .styled-table td {
-  padding: 12px 15px;
+.styled-table th, 
+.styled-table td {
+  padding: 10px 12px;
   text-align: left;
+  border: 1% solid black; /* borda em todas as células */
 }
 
 .styled-table th {
-  background-color: #f0f4f8;
+  background-color: #e9eef5;
   font-weight: bold;
   color: #333;
 }
 
-.styled-table tr {
-  border-bottom: 1px solid #ddd;
+.styled-table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
 .styled-table tr:hover {
-  background-color: #f9f9f9;
+  background-color: #f1f6ff;
 }
 
 /* ====== STATUS ====== */
@@ -144,8 +139,9 @@ body {
   color: #dc3545;
   font-weight: bold;
 }
+
 .saldo-container {
-      margin-left: 250px;
+      margin-left: 20%;
       padding: 2rem;
       background-color: #f4f6f9;
       min-height: 100vh;
@@ -193,3 +189,7 @@ body {
       font-size: 16px;
       color: #555;
     }
+
+.saldo-container{
+  padding-left: 20%;
+}

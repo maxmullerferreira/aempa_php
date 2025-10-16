@@ -12,7 +12,7 @@ if(isset($_POST['email'])) {
     $usuario = $sql_exec->fetch_assoc();
 
     if(password_verify($senha, $usuario['senha'])){
-      header("Location: dashboard.php");
+      header("Location: nivel.php");
       exit;
     }
   }

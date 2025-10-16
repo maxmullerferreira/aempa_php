@@ -6,7 +6,7 @@ if(isset($_POST['valor'])){
   $especificacao = $_POST['especificacao'];
   $dia = $_POST['dia'];
 
-  $mysqli->query("INSERT INTO saida (valor, especificacao, dia ) VALUES('$valor', '$especificacao', '$dia')");
+  $mysqli->query("INSERT INTO saida (valor, especificacao, dia) VALUES('$valor', '$especificacao', '$dia')");
 
   if ($mysqli->affected_rows > 0) {
     header("Location: saida.php");
@@ -25,7 +25,7 @@ if(isset($_POST['valor'])){
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 
-<header>
+
   <div class="dashboard">
     <aside class="sidebar">
       <img src="logo.png" alt="AEMPA Logo" class="logo-small">
@@ -38,7 +38,6 @@ if(isset($_POST['valor'])){
       </nav>
     </aside>
 
-</header>
 
 <body>
   <div class="form-container">

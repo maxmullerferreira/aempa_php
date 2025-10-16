@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<header>
-  <div class="logout"><a href="logout.php">Logout</a></div>
-</header>
+
 <div class="dashboard">
     <aside class="sidebar">
       <img src="logo.png" alt="AEMPA Logo" class="logo-small">
@@ -17,7 +15,6 @@
       <nav>
         <ul>
           <li><a href="lista_associados.php">📋 Associados</a></li>
-          <li><a href="entrada.php">💰 Financeiro</a></li>
           <li><a href="saldo.php">💳 Saldo disponível</a></li>
           <li><a href="logout.php">🚪 Logout</a></li>
         </ul>

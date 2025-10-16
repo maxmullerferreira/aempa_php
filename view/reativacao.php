@@ -31,7 +31,7 @@ if(isset($_POST['cpf'])){
   </script>
 </head>
 
-<header>
+
   <div class="dashboard">
     <aside class="sidebar">
       <img src="logo.png" alt="AEMPA Logo" class="logo-small">
@@ -44,7 +44,6 @@ if(isset($_POST['cpf'])){
       </nav>
     </aside>
 
-</header>
 
 <body>
   <div class="form-container">

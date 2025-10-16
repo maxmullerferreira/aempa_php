@@ -32,10 +32,6 @@ $result = $mysqli->query($query);
     </aside>
 
     <main class="main-content">
-        <header class="topbar">
-            <h1>Lista de Associados</h1>
-            <button class="novo-btn"><a href="cadastro_associado.php">+ Novo Associado</a></button>
-        </header>
 
         <section class="table-container">
             <table class="styled-table">

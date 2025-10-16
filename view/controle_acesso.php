@@ -9,7 +9,7 @@ if(!isset($_SESSION['usuario_id'])){
 }
 
 // Apenas usuários com nível 2 podem acessar
-if(!isset($_SESSION['nivel_acesso']) || $_SESSION['nivel_acesso'] != 1){
+if(!isset($_SESSION['nivel_acesso']) || $_SESSION['nivel_acesso'] != 2){
     echo "<p>Acesso negado. Você não tem permissão para acessar esta página.</p>";
     exit;
 }
