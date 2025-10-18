@@ -31,14 +31,16 @@ if(isset($_POST['email'])) {
   <link rel="stylesheet" href="../assets/style.css"/>
 </head>
 <body>
-  <div class="login-container">
-    <img src="logo.png" alt="AEMPA Logo" class="logo" />
-    <h2>PORTAL ADMINISTRATIVO</h2>
-    <form action="" method="POST">
-      <input type="text" placeholder="E-mail" name="email" required />
-      <input type="password" placeholder="Senha" name="senha" required />
-      <button type="submit">Entrar</button>
-    </form>
-  </div>
+  <main class="main-content">
+    <div class="login-container">
+      <img src="logo.png" alt="AEMPA Logo" class="logo" />
+      <h2>PORTAL ADMINISTRATIVO</h2>
+      <form action="" method="POST">
+        <input type="text" placeholder="E-mail" name="email" required />
+        <input type="password" placeholder="Senha" name="senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </main>
 </body>
 </html>

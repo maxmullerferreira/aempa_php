@@ -1,4 +1,19 @@
 <?php
+session_start();
+include('../config/config.php');
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Apenas usuários com nível 2 podem acessar
+if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) !== 2) {
+    echo "<p style='color:red;'>Acesso negado. Você não tem permissão para acessar esta página.</p>";
+    exit;
+}
+?>
+<?php
 include('../config/config.php');
 
 if(isset($_POST['cpf'])){
@@ -49,7 +64,7 @@ if(isset($_POST['cpf'])){
 </head>
 
 
-  <div class="dashboard">
+
     <aside class="sidebar">
       <img src="logo.png" alt="AEMPA Logo" class="logo-small">
       <h2>AEMPA</h2>
@@ -64,22 +79,24 @@ if(isset($_POST['cpf'])){
 
 
 <body>
-  <div class="form-container">
-    <h2>Cadastro/Atualização de Associado</h2>
-    <form method="POST">
-      <input type="text" name="cpf" placeholder="CPF" required>
-      <input type="text" name="endereco" placeholder="Endereço" required>
-      <input type="text" name="bairro" placeholder="Bairro" required>
-      <input type="text" name="telefone" placeholder="Telefone" required>
-      <input type="email" name="email" placeholder="E-mail" required>
-      <button type="submit">Salvar</button>
-    </form>
-
-    <?php
-    if(isset($mensagem)){
-        echo "<p>$mensagem</p>";
-    }
-    ?>
-  </div>
+  <main class="main-content">
+    
+    <div class="form-container">
+      <h2>Cadastro/Atualização de Associado</h2>
+      <form method="POST">
+        <input type="text" name="cpf" placeholder="CPF" required>
+        <input type="text" name="endereco" placeholder="Endereço" required>
+        <input type="text" name="bairro" placeholder="Bairro" required>
+        <input type="text" name="telefone" placeholder="Telefone" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <button type="submit">Salvar</button>
+      </form>
+      <?php
+      if(isset($mensagem)){
+          echo "<p>$mensagem</p>";
+      }
+      ?>
+    </div>
+  </main>
 </body>
 </html>

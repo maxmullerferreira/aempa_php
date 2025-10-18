@@ -7,6 +7,74 @@ body {
   display: flex;
 }
 
+a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit; /* Faz o link herdar a cor do texto do elemento pai */
+}
+/* ====== CONTEÚDO PRINCIPAL ====== */
+.main-content {
+  margin-left: 250px;
+  padding: 2rem;
+  width: calc(100% - 250px);
+  color: #007BFF;
+  height: 100vh;
+  padding: 1.5rem 1rem;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-container,
+.form-container {
+  max-width: 400px;
+  margin: 5% auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+input,
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo da lista */
+.lista table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.lista th,
+.lista td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.lista th {
+  background-color: #f2f2f2;
+}
+
 /* ====== SIDEBAR ====== */
 .sidebar {
   width: 230px;
@@ -17,7 +85,6 @@ body {
   position: fixed;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .logo-area {
@@ -43,55 +110,54 @@ body {
 }
 
 .sidebar ul li a {
-  display: flex;
-  align-items: center;
-  color: white;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s, background 0.3s;
-  padding: 8px;
-  border-radius: 6px;
+  color: white;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
 }
 
 .sidebar ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.menu-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  filter: brightness(0) invert(1); 
+.logo-small {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px auto;
+  background-image: url('../assets/logo.png'); /* caminho da sua imagem */
+  background-size: contain; /* ajusta a imagem para caber */
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
 
 /* ====== TOPO ====== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
 
+.topbar h1 {
+  font-size: 1.5rem;
+  color: #333;
+}
 
 .novo-btn {
-  display: inline-block;
-  background-color: #007bff; 
+  background-color: #007bff;
   color: white;
   padding: 10px 20px;
   border-radius: 8px;
-  text-decoration: none; 
-  font-weight: bold;
-  font-size: 15px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  font-weight: bold;
+  transition: background 0.3s;
 }
-
 .novo-btn:hover {
-  background-color: #0056b3; 
-  transform: scale(1.05); 
-  text-decoration: none; 
+  background-color: #0056b3;
 }
-
-
-
 
 /* ====== TABELA ====== */
 .table-container {
@@ -99,35 +165,30 @@ body {
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  overflow-x: auto; /* rolagem se a tabela for larga */
 }
 
 .styled-table {
   width: 100%;
-  border-collapse: collapse; /* importante para colar as bordas */
-  border: 1% solid black; /* borda externa */
-  font-size: 15px;
+  border-collapse: collapse;
 }
 
-.styled-table th, 
-.styled-table td {
-  padding: 10px 12px;
+.styled-table th, .styled-table td {
+  padding: 12px 15px;
   text-align: left;
-  border: 1% solid black; /* borda em todas as células */
 }
 
 .styled-table th {
-  background-color: #e9eef5;
+  background-color: #f0f4f8;
   font-weight: bold;
   color: #333;
 }
 
-.styled-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.styled-table tr {
+  border-bottom: 1px solid #ddd;
 }
 
 .styled-table tr:hover {
-  background-color: #f1f6ff;
+  background-color: #f9f9f9;
 }
 
 /* ====== STATUS ====== */
@@ -139,6 +200,7 @@ body {
   color: #dc3545;
   font-weight: bold;
 }
+
 
 .saldo-container {
       margin-left: 20%;

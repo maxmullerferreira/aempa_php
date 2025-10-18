@@ -1,3 +1,4 @@
+
 <?php
 include('../config/config.php');
 
@@ -35,7 +36,7 @@ $result = $mysqli->query($sql_movimentacoes);
     </nav>
   </aside>
 
-  <main class="main-content">
+
   <div class="saldo-container">
     <div class="saldo-card">
       <h2>📋 Relatório Financeiro</h2>

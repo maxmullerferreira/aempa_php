@@ -1,4 +1,20 @@
 <?php
+session_start();
+include('../config/config.php');
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Apenas usuários com nível 2 podem acessar
+if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) !== 2) {
+    echo "<p style='color:red;'>Acesso negado. Você não tem permissão para acessar esta página.</p>";
+    exit;
+}
+?>
+
+<?php
 if(isset($_POST['valor'])){
   include('../config/config.php');
 
@@ -40,14 +56,16 @@ if(isset($_POST['valor'])){
 
 
 <body>
-  <div class="form-container">
-    <h2>Saída</h2>
-    <form>
-      <input type="number" name="valor" placeholder="Valor" required>
-      <input type="text" name="especificacao" placeholder="Especificação" required>
-      <input type="date" name="dia" placeholder="Data" required>
-      <button type="submit">Lançar</button>
-    </form>
-  </div>
+  <main class="main-content">
+    <div class="form-container">
+      <h2>Saída</h2>
+      <form>
+        <input type="number" name="valor" placeholder="Valor" required>
+        <input type="text" name="especificacao" placeholder="Especificação" required>
+        <input type="date" name="dia" placeholder="Data" required>
+        <button type="submit">Lançar</button>
+      </form>
+    </div>
+  </main>
 </body>
 </html>

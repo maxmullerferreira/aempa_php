@@ -60,15 +60,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </nav>
     </aside>
   </div>
-
-  <div class="form-container">
-    <h2>Cadastro de Usuário</h2>
-    <form action="" method="post">
-      <input type="text" name="nome" placeholder="Nome completo" required>
-      <input type="email" name="email" placeholder="E-mail" required>
-      <input type="password" name="senha" placeholder="Senha" required>
-      <button type="submit">Cadastrar</button>
-    </form>
-  </div>
+<main class="main-content">
+  
+    <div class="form-container">
+      <h2>Cadastro de Usuário</h2>
+      <form action="" method="post">
+        <input type="text" name="nome" placeholder="Nome completo" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="password" name="senha" placeholder="Senha" required>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+</main>
 </body>
 </html>

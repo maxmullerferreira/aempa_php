@@ -26,6 +26,7 @@
         <h3>Menu de Acesso</h3>
         <ul class="submenu">
           <li><a href="cadastro_associado.php">Cadastro de Associados</a></li>
+          <li><a href="cadastro_e-mail.php">Cadastro de ADM</a></li>
           <li><a href="reativacao.php">Reativação de Associados</a></li>
           <li><a href="atualizacao.php">Atualização de Associado</a></li>
           <li><a href="desativar.php">Desativar Associado</a></li>
