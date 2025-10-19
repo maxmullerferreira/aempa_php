@@ -12,9 +12,26 @@ if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) !== 2)
     echo "<p style='color:red;'>Acesso negado. Você não tem permissão para acessar esta página.</p>";
     exit;
 }
-?>
 
-<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $valor = $_POST['valor'];
+    $nome_completo = $_POST['nome_completo'];
+    $dia = $_POST['dia'];
+
+    // Pega o e-mail do usuário logado
+    $usuario_email = $_SESSION['usuario_email'];
+
+    $stmt = $mysqli->prepare("INSERT INTO entrada (valor, nome_completo, usuario_email, dia) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("dsss", $valor, $nome_completo, $usuario_email, $dia);
+    $stmt->execute();
+    $stmt->close();
+
+    header("Location: entrada.php");
+    exit;
+}
+
+
 if(isset($_POST['nome_completo'])){
   include('../config/config.php');
 
@@ -31,6 +48,7 @@ if(isset($_POST['nome_completo'])){
     echo "Erro ao lançar no banco de dados.";
   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +79,7 @@ if(isset($_POST['nome_completo'])){
     <div class="form-container">
       <h2>Entrada</h2>
       <form method="POST" action="">
-        <input type="number" name="valor" placeholder="Valor" required>
+        <input type="number" step="0.01" name="valor" placeholder="Valor" required>
         <input type="text" name="nome_completo" placeholder="Nome completo" required>
         <input type="date" name="dia" required>
         <button type="submit">Lançar</button>

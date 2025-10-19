@@ -1,5 +1,7 @@
 <?php
-$sql_code ="-- Criar banco de dados 
+$sql_code ="
+
+-- Criar banco de dados 
 CREATE DATABASE IF NOT EXISTS db_aempa
   DEFAULT CHARACTER SET utf8mb4
   DEFAULT COLLATE utf8mb4_unicode_ci;
@@ -20,10 +22,11 @@ CREATE TABLE IF NOT EXISTS entrada (
   id INT AUTO_INCREMENT PRIMARY KEY,
   valor DECIMAL(10,2) NOT NULL,
   nome_completo VARCHAR(100) NOT NULL,
+  usuario_email VARCHAR(150) NOT NULL,
   dia DATE NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Tabela de associados 
+-- Tabela de associados
 CREATE TABLE IF NOT EXISTS associado (
   id INT AUTO_INCREMENT PRIMARY KEY,
   cpf VARCHAR(14) NOT NULL UNIQUE,
@@ -37,12 +40,18 @@ CREATE TABLE IF NOT EXISTS associado (
   data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Tabela de saídas financeiras 
+-- Tabela de saídas financeiras
 CREATE TABLE IF NOT EXISTS saida (
   id INT AUTO_INCREMENT PRIMARY KEY,
   valor DECIMAL(10,2) NOT NULL,
   especificacao VARCHAR(255) NOT NULL,
+  usuario_email VARCHAR(150) NOT NULL,
   dia DATE NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-";
+
+
+ALTER TABLE entrada ADD COLUMN usuario_nome VARCHAR(100);
+ALTER TABLE saida ADD COLUMN usuario_nome VARCHAR(100);
+
+" ;
 ?>

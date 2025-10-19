@@ -12,10 +12,26 @@ if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) !== 2)
     echo "<p style='color:red;'>Acesso negado. Você não tem permissão para acessar esta página.</p>";
     exit;
 }
-?>
 
-<?php
-if(isset($_POST['valor'])){
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $valor = $_POST['valor'];
+    $especificacao = $_POST['especificacao'];
+    $dia = $_POST['dia'];
+
+    // Pega o e-mail do usuário logado
+    $usuario_email = $_SESSION['usuario_email'];
+
+    $stmt = $mysqli->prepare("INSERT INTO saida (valor, especificacao, usuario_email, dia) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("dsss", $valor, $especificacao, $usuario_email, $dia);
+    $stmt->execute();
+    $stmt->close();
+
+    header("Location: saida.php");
+    exit;
+}
+
+if(isset($_POST['especificacao'])){
   include('../config/config.php');
 
   $valor = $_POST['valor'];
@@ -59,8 +75,8 @@ if(isset($_POST['valor'])){
   <main class="main-content">
     <div class="form-container">
       <h2>Saída</h2>
-      <form>
-        <input type="number" name="valor" placeholder="Valor" required>
+      <form method="POST" action="saida.php">
+        <input type="number" step="0.01" name="valor" placeholder="Valor" required>
         <input type="text" name="especificacao" placeholder="Especificação" required>
         <input type="date" name="dia" placeholder="Data" required>
         <button type="submit">Lançar</button>

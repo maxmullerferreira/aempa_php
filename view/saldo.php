@@ -31,11 +31,10 @@ $saldo_disponivel = $total_entradas - $total_saidas;
     <h2>AEMPA</h2>
     <nav>
       <ul>
-        <li><a href="dashboard.php">Dashboard</a></li>
-        <li><a href="lista_associados.php">Associados</a></li>
-        <li><a href="entrada.php">Financeiro</a></li>
-        <li><a href="saldo.php">Saldo disponível</a></li>
-        <li><a href="logout.php">Logout</a></li>
+        <li><a href="dashboard.php"> Dashboard</a></li>
+        <li><a href="lista_associados.php">📋Associados</a></li>
+        <li><a href="saldo.php">💳Saldo disponível</a></li>
+        <li><a href="logout.php">🚪 Logout</a></li>
       </ul>
     </nav>
   </aside>

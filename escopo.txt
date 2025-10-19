@@ -1,0 +1,34 @@
+Escopo do Projeto 
+
+Abrange o desenvolvimento e a entrega de um sistema de gerenciamento que atenderá às necessidades específicas da Associação Esportiva Master de Ponte Alta - AEMPA. O objetivo é criar uma plataforma robusta e intuitiva, composta por várias seções essenciais que facilitarão a gestão de informações e a interação com administradores. O escopo inclui o design, desenvolvimento, e implementação das seguintes funcionalidades:
+
+Página Inicial:
+
+Design e Layout: Criação de uma interface atraente que forneça uma visão clara das principais informações e facilite a navegação para outras seções do sistema.
+
+Conteúdo Dinâmico: Implementação de seções que possam ser atualizadas regularmente com informações relevantes, como notícias, eventos e anúncios.
+
+Acessibilidade e Usabilidade: Garantir que a página inicial seja acessível e fácil de usar em diversos dispositivos e tamanhos de tela.
+
+Administradores:
+
+Login: Autenticação segura para diferentes perfis de associados.
+
+Cadastro e Gestão de Associados: Implementação de formulários para o cadastro de novos associados e para atualização das informações dos  administradores e associados existentes.
+
+Formulários Personalizados: Criação de formulários para diferentes necessidades, como inscrição para associados ou administradores, feedback, e solicitações de suporte.
+
+Segurança de Dados: Implementação de medidas para garantir a segurança e a privacidade dos dados coletados por meio dos formulários.
+
+Gerenciamento de administradores: Ferramentas para gerenciar a base de associados, incluindo a capacidade de adicionar, editar e remover informações conforme necessário.
+
+Financeiro: 
+
+Informações sobre as finanças: Desenvolvimento de uma seção dedicada para que os administradores que possam acessar informações exclusivas e atualizações relevantes.
+
+Product backlog do projeto de Sistema de Gerenciamento para a Associação Esportiva Master - AEMPA:
+
+Criação da tela inicial 
+Criação da tela de login dos membros/associados 
+Criação da tela de cadastro dos administradores 
+Criação da tela de gerenciamento financeiro
