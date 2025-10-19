@@ -36,6 +36,32 @@ a {
 
 }
 
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu li {
+    margin: 10px 0;
+}
+
+.submenu a {
+    display: block;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.submenu a:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: translateX(5px);
+}
+
 input,
 button {
   display: block;

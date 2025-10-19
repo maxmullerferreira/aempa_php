@@ -1,5 +1,19 @@
+
+
 <?php
+session_start();
 include('../config/config.php');
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Apenas usuários com nível 2 podem acessar
+if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) <= 0) {
+    echo "<p style='color:red;'>Acesso negado. Você não tem permissão para acessar esta página.</p>";
+    exit;
+}
 
 // Consulta o total de entradas
 $sql_entradas = "SELECT COALESCE(SUM(valor), 0) AS total_entradas FROM entrada";
@@ -31,9 +45,11 @@ $saldo_disponivel = $total_entradas - $total_saidas;
     <h2>AEMPA</h2>
     <nav>
       <ul>
-        <li><a href="dashboard.php"> Dashboard</a></li>
-        <li><a href="lista_associados.php">📋Associados</a></li>
-        <li><a href="saldo.php">💳Saldo disponível</a></li>
+        <li><a href="dashboard.php">📊 Dashboard</a></li>
+        <li><a href="lista_associados.php">📋 Associados</a></li>
+        <li><a href="entrada.php">💰 Entradas</a></li>
+        <li><a href="saida.php">💸 Saídas</a></li>
+        <li><a href="saldo.php">💼 Saldo</a></li>
         <li><a href="logout.php">🚪 Logout</a></li>
       </ul>
     </nav>

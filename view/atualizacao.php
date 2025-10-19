@@ -70,9 +70,13 @@ if(isset($_POST['cpf'])){
       <h2>AEMPA</h2>
       <nav>
         <ul>
-          <li><a href="dashboard.php">📊 Dashboard</a></li>
-          <li><a href="logout.php">🚪 Logout</a></li>
-        </ul>
+                <li><a href="dashboard.php">📊 Dashboard</a></li>
+                <li><a href="lista_associados.php">📋 Associados</a></li>
+                <li><a href="entrada.php">💰 Entradas</a></li>
+                <li><a href="saida.php">💸 Saídas</a></li>
+                <li><a href="saldo.php">💼 Saldo</a></li>
+                <li><a href="logout.php">🚪 Logout</a></li>
+            </ul>
       </nav>
     </aside>
 

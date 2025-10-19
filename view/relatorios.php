@@ -7,6 +7,11 @@ if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit;
 }
+// Apenas usuários com nível 2 podem acessar
+if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) <= 0) {
+    echo "<p style='color:red;'>Acesso negado. Você não tem permissão para acessar esta página.</p>";
+    exit;
+}
 
 // 🔍 Consulta todas as entradas
 $sql_entradas = "SELECT id, valor, nome_completo AS descricao, usuario_email, dia, 'Entrada' AS tipo FROM entrada";
@@ -67,6 +72,7 @@ $saldo = $totalEntradas - $totalSaidas;
         <nav>
             <ul>
                 <li><a href="dashboard.php">📊 Dashboard</a></li>
+                <li><a href="lista_associados.php">📋 Associados</a></li>
                 <li><a href="entrada.php">💰 Entradas</a></li>
                 <li><a href="saida.php">💸 Saídas</a></li>
                 <li><a href="saldo.php">💼 Saldo</a></li>

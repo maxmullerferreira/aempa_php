@@ -1,5 +1,19 @@
 <?php
+session_start();
 include('../config/config.php');
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Apenas usuários com nível 2 podem acessar
+if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) <= 0) {
+    echo "<p style='color:red;'>Acesso negado. Você não tem permissão para acessar esta página.</p>";
+    exit;
+}
+
+
 
 // Consulta todos os associados em ordem alfabética pelo nome
 $query = "SELECT cpf, nome_completo, data_nascimento, endereco, bairro, telefone, email, data_criacao, ativo 
@@ -26,6 +40,10 @@ $result = $mysqli->query($query);
         <nav>
             <ul>
                 <li><a href="dashboard.php">📊 Dashboard</a></li>
+                <li><a href="lista_associados.php">📋 Associados</a></li>
+                <li><a href="entrada.php">💰 Entradas</a></li>
+                <li><a href="saida.php">💸 Saídas</a></li>
+                <li><a href="saldo.php">💼 Saldo</a></li>
                 <li><a href="logout.php">🚪 Logout</a></li>
             </ul>
         </nav>

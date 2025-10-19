@@ -55,6 +55,10 @@ if(isset($_POST['cpf'])){
       <nav>
         <ul>
           <li><a href="dashboard.php">📊 Dashboard</a></li>
+          <li><a href="lista_associados.php">📋 Associados</a></li>
+          <li><a href="entrada.php">💰 Entradas</a></li>
+          <li><a href="saida.php">💸 Saídas</a></li>
+          <li><a href="saldo.php">💼 Saldo</a></li>
           <li><a href="logout.php">🚪 Logout</a></li>
         </ul>
       </nav>
