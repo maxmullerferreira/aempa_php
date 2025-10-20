@@ -22,6 +22,7 @@ if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) <= 0) 
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+  
 
 <div class="dashboard">
     <aside class="sidebar">

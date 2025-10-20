@@ -41,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
   <div class="login-container">
-    <img src="logo.png" alt="AEMPA Logo" class="logo" />
     <h2>PORTAL ADMINISTRATIVO</h2>
     <form action="" method="POST">
       <input type="text" placeholder="E-mail" name="email" required />

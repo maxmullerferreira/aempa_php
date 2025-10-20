@@ -33,8 +33,8 @@ $result = $mysqli->query($query);
 
 <body>
     <aside class="sidebar">
-        <div class="logo-area">
-            <img src="logo.png" alt="AEMPA Logo" class="logo-small">
+        <img src="logo.png" alt="AEMPA Logo" class="logo-small">
+        <div class="logo-area">        
             <h2>AEMPA</h2>
         </div>
         <nav>
