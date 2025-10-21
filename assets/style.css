@@ -1,121 +1,125 @@
 /* ====== GERAL ====== */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  background-color: #f5f7fb;
-  color: #333;
-  display: flex;
+  font-family: 'Segoe UI', sans-serif; /* Define a fonte do site */
+  margin: 0;                           /* Remove a margem padrão do body */
+  background-color: #f5f7fb;           /* Cor de fundo clara */
+  color: #333;                          /* Cor do texto padrão */
+  display: flex;                        /* Define o layout flexível */
 }
 
 a {
-  text-decoration: none; /* Remove o sublinhado */
-  color: inherit; /* Faz o link herdar a cor do texto do elemento pai */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: inherit;        /* Faz o link herdar a cor do texto do elemento pai */
 }
+
 /* ====== CONTEÚDO PRINCIPAL ====== */
 .main-content {
-  margin-left: 250px;
-  padding: 2rem;
-  width: calc(100% - 250px);
-  color: #007BFF;
-  height: 100vh;
-  padding: 1.5rem 1rem;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin-left: 250px;            /* Espaço à esquerda para a sidebar */
+  padding: 2rem;                 /* Espaçamento interno */
+  width: calc(100% - 250px);     /* Largura total menos a sidebar */
+  color: #007BFF;                /* Cor do texto */
+  height: 100vh;                 /* Ocupa toda a altura da tela */
+  padding: 1.5rem 1rem;          /* Ajusta o padding */
+  position: fixed;               /* Mantém o conteúdo fixo */
+  display: flex;                 /* Layout flexível */
+  flex-direction: column;        /* Organiza elementos em coluna */
+  justify-content: space-between;/* Distribui elementos com espaço */
 }
 
+/* Containers de formulário */
 .login-container,
 .form-container {
-  max-width: 400px;
-  margin: 5% auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+  max-width: 400px;                  /* Largura máxima */
+  margin: 5% auto;                   /* Centraliza na tela vertical e horizontalmente */
+  background: white;                 /* Fundo branco */
+  padding: 2rem;                     /* Espaço interno */
+  border-radius: 10px;               /* Bordas arredondadas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
+/* ====== SUBMENU ====== */
 .submenu {
-    list-style: none;
+    list-style: none; /* Remove marcadores da lista */
     padding: 0;
     margin: 0;
 }
 
 .submenu li {
-    margin: 10px 0;
+    margin: 10px 0; /* Espaço entre itens do submenu */
 }
 
 .submenu a {
-    display: block;
-    text-decoration: none;
-    color: #007bff;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    display: block;           /* Link ocupa toda a largura do item */
+    text-decoration: none;    /* Remove sublinhado */
+    color: #007bff;           /* Cor azul */
+    font-weight: 500;         /* Peso da fonte médio */
+    padding: 10px 20px;       /* Espaçamento interno */
+    border-radius: 8px;       /* Bordas arredondadas */
+    transition: all 0.3s ease; /* Efeito suave em hover */
 }
 
 .submenu a:hover {
-    background-color: #007bff;
-    color: #fff;
-    transform: translateX(5px);
+    background-color: #007bff; /* Fundo azul ao passar o mouse */
+    color: #fff;                /* Texto branco */
+    transform: translateX(5px); /* Move levemente à direita */
 }
 
+/* ====== INPUTS E BOTÕES ====== */
 input,
 button {
   display: block;
-  width: 100%;
+  width: 100%;           /* Ocupa 100% da largura do container */
   padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  margin-bottom: 15px;   /* Espaçamento inferior */
+  border-radius: 5px;    /* Bordas arredondadas */
+  border: 1px solid #ccc;/* Borda cinza clara */
 }
 
 button {
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  cursor: pointer;
+  background-color: #007BFF; /* Fundo azul */
+  color: white;               /* Texto branco */
+  border: none;               /* Remove borda padrão */
+  cursor: pointer;            /* Cursor de mãozinha */
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3;  /* Azul mais escuro ao passar o mouse */
 }
 
-/* Estilo da lista */
+/* ====== LISTAS/TABELAS ====== */
 .lista table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  width: 100%;                 /* Ocupa 100% da largura */
+  border-collapse: collapse;   /* Remove espaçamento entre células */
+  margin-top: 20px;            /* Espaço acima da tabela */
 }
 
 .lista th,
 .lista td {
   padding: 10px;
-  border: 1px solid #ccc;
-  text-align: left;
+  border: 1px solid #ccc;      /* Borda cinza */
+  text-align: left;             /* Texto alinhado à esquerda */
 }
 
 .lista th {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2;   /* Fundo cinza claro para cabeçalho */
 }
 
 /* ====== SIDEBAR ====== */
 .sidebar {
   width: 230px;
-  background-color: #007bff;
+  background-color: #007bff; /* Fundo azul */
   color: white;
   height: 100vh;
   padding: 1.5rem 1rem;
-  position: fixed;
+  position: fixed;           /* Fixa a sidebar */
   display: flex;
   flex-direction: column;
 }
 
 .logo-area {
-  text-align: center;
+  text-align: center; /* Centraliza logo e título */
 }
+
 .logo-small {
   width: 60px;
   margin-bottom: 10px;
@@ -127,12 +131,12 @@ button:hover {
 }
 
 .sidebar ul {
-  list-style: none;
+  list-style: none; /* Remove marcadores */
   padding: 0;
 }
 
 .sidebar ul li {
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Espaço entre itens */
 }
 
 .sidebar ul li a {
@@ -145,15 +149,16 @@ button:hover {
 }
 
 .sidebar ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2); /* Leve destaque ao passar o mouse */
 }
 
+/* Logo com background */
 .logo-small {
   width: 80px;
   height: 80px;
   margin: 0 auto 20px auto;
-  background-image: url('../assets/logo.png'); /* caminho da sua imagem */
-  background-size: contain; /* ajusta a imagem para caber */
+  background-image: url('../assets/logo.png'); /* Caminho da imagem */
+  background-size: contain;    /* Ajusta a imagem para caber */
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -181,21 +186,28 @@ button:hover {
   font-weight: bold;
   transition: background 0.3s;
 }
+
 .novo-btn:hover {
   background-color: #0056b3;
 }
 
-/* ====== TABELA ====== */
+/* ====== TABELAS ====== */
 .table-container {
-  background: white;
-  padding: 1.5rem;
+  background-color: white;
   border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 5rem;
+  max-width: 800px auto;
+  margin: 50px auto;
+  text-align: center;
+  
+  
 }
 
 .styled-table {
   width: 100%;
   border-collapse: collapse;
+  
 }
 
 .styled-table th, .styled-table td {
@@ -219,65 +231,65 @@ button:hover {
 
 /* ====== STATUS ====== */
 .ativo-sim {
-  color: #28a745;
+  color: #28a745; /* Verde para ativo */
   font-weight: bold;
 }
 .ativo-nao {
-  color: #dc3545;
+  color: #dc3545; /* Vermelho para inativo */
   font-weight: bold;
 }
 
-
+/* ====== SALDO FINANCEIRO ====== */
 .saldo-container {
-      margin-left: 20%;
-      padding: 2rem;
-      background-color: #f4f6f9;
-      min-height: 100vh;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      justify-content: center;
-    }
+  margin-left: 20%;               /* Espaço para sidebar */
+  padding: 2rem;
+  background-color: #f4f6f9;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  justify-content: center;
+}
 
-    .saldo-card {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 5rem;
-      max-width: 800px auto;
-      margin: 50px auto;
-      text-align: center;
-    }
+.saldo-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 5rem;
+  max-width: 800px auto;
+  margin: 50px auto;
+  text-align: center;
+}
 
-    .saldo-card h2 {
-      color: #007BFF;
-      margin-bottom: 15px;
-    }
+.saldo-card h2 {
+  color: #007BFF;
+  margin-bottom: 15px;
+}
 
-    .saldo-card p {
-      font-size: 20px;
-      margin: 10px 0;
-    }
+.saldo-card p {
+  font-size: 20px;
+  margin: 10px 0;
+}
 
-    .valor {
-      font-size: 36px;
-      font-weight: bold;
-      color: #28a745; 
-    }
+.valor {
+  font-size: 36px;
+  font-weight: bold;
+  color: #28a745; /* Verde por padrão */
+}
 
-    .valor.negativo {
-      color: "#dc3545"; 
-    }
+.valor.negativo {
+  color: "#dc3545"; /* Vermelho para saldo negativo */
+}
 
+.saldo-info { 
+  margin-top: 20px;
+  text-align: left;
+}
 
-    .saldo-info { 
-      margin-top: 20px;
-      text-align: left;
-    }
+.saldo-info p {
+  font-size: 16px;
+  color: #555;
+}
 
-    .saldo-info p {
-      font-size: 16px;
-      color: #555;
-    }
-
-.saldo-container{
+/* Ajuste final do container do saldo */
+.saldo-container {
   padding-left: 20%;
 }

@@ -1,47 +1,69 @@
 <?php
+// ----------------------------
+// 🔹 Inicia a sessão do usuário para verificar login e acesso
+// ----------------------------
 session_start();
+
+// ----------------------------
+// 🔹 Inclui arquivo de configuração do banco de dados
+// ----------------------------
 include('../config/config.php');
 
+// ----------------------------
 // 🔒 Verifica se o usuário está logado
+// ----------------------------
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: login.php");
+    header("Location: login.php"); // Redireciona se não estiver logado
     exit;
 }
-// Apenas usuários com nível 2 podem acessar
+
+// ----------------------------
+// 🔒 Verifica se o usuário tem nível de acesso permitido (>0)
+// ----------------------------
 if (empty($_SESSION['nivel_acesso']) || intval($_SESSION['nivel_acesso']) <= 0) {
     echo "<p style='color:red;'>Acesso negado. Você não tem permissão para acessar esta página.</p>";
     exit;
 }
 
-// 🔍 Consulta todas as entradas
+// ----------------------------
+// 🔍 Consulta todas as entradas financeiras
+// ----------------------------
 $sql_entradas = "SELECT id, valor, nome_completo AS descricao, usuario_email, dia, 'Entrada' AS tipo FROM entrada";
 $result_entradas = $mysqli->query($sql_entradas);
 
-// 🔍 Consulta todas as saídas
+// ----------------------------
+// 🔍 Consulta todas as saídas financeiras
+// ----------------------------
 $sql_saidas = "SELECT id, valor, especificacao AS descricao, usuario_email, dia, 'Saída' AS tipo FROM saida";
 $result_saidas = $mysqli->query($sql_saidas);
 
-// 🧾 Junta tudo num único array
+// ----------------------------
+// 🧾 Junta todas as movimentações em um único array
+// ----------------------------
 $movimentacoes = [];
 
 if ($result_entradas && $result_entradas->num_rows > 0) {
     while ($row = $result_entradas->fetch_assoc()) {
-        $movimentacoes[] = $row;
+        $movimentacoes[] = $row; // Adiciona cada entrada no array
     }
 }
 
 if ($result_saidas && $result_saidas->num_rows > 0) {
     while ($row = $result_saidas->fetch_assoc()) {
-        $movimentacoes[] = $row;
+        $movimentacoes[] = $row; // Adiciona cada saída no array
     }
 }
 
-// 📅 Ordena por data (mais recentes primeiro)
+// ----------------------------
+// 📅 Ordena todas as movimentações por data (mais recentes primeiro)
+// ----------------------------
 usort($movimentacoes, function ($a, $b) {
     return strtotime($b['dia']) - strtotime($a['dia']);
 });
 
-// 💰 Calcula totais
+// ----------------------------
+// 💰 Calcula totais de entradas e saídas
+// ----------------------------
 $totalEntradas = 0;
 $totalSaidas = 0;
 
@@ -53,9 +75,11 @@ foreach ($movimentacoes as $mov) {
     }
 }
 
+// ----------------------------
+// 🔹 Calcula saldo geral
+// ----------------------------
 $saldo = $totalEntradas - $totalSaidas;
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -84,6 +108,7 @@ $saldo = $totalEntradas - $totalSaidas;
     <!-- 📋 CONTEÚDO PRINCIPAL -->
     <div class="saldo-container">
         <div class="saldo-card">
+            <!-- Mostra totais de entradas, saídas e saldo -->
             <div class="totais">
                 <p><strong>Total de Entradas:</strong> R$ <?= number_format($totalEntradas, 2, ',', '.'); ?></p>
                 <p><strong>Total de Saídas:</strong> R$ <?= number_format($totalSaidas, 2, ',', '.'); ?></p>
@@ -96,6 +121,7 @@ $saldo = $totalEntradas - $totalSaidas;
 
             <h2>📋 Relatório Financeiro</h2>
 
+            <!-- Tabela com todas as movimentações -->
             <table class="styled-table">
                 <thead>
                     <tr>
@@ -108,15 +134,20 @@ $saldo = $totalEntradas - $totalSaidas;
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Verifica se existem movimentações -->
                     <?php if (!empty($movimentacoes)): ?>
                         <?php foreach ($movimentacoes as $mov): ?>
                             <tr>
-                                <td><?= date('d/m/Y', strtotime($mov['dia'])); ?></td>
+                                <!-- Formata data -->
+                                <td><?= date('d/m/Y', timestamp: strtotime($mov['dia'])); ?></td>
+                                <!-- Tipo com cor (verde = entrada, vermelho = saída) -->
                                 <td style="font-weight:bold; color: <?= ($mov['tipo'] === 'Entrada') ? '#28a745' : '#dc3545'; ?>">
                                     <?= $mov['tipo']; ?>
                                 </td>
+                                <!-- Descrição e usuário -->
                                 <td><?= htmlspecialchars($mov['descricao']); ?></td>
                                 <td><?= htmlspecialchars($mov['usuario_email']); ?></td>
+                                <!-- Valor formatado com sinal -->
                                 <td style="font-weight:bold;">
                                     <?php
                                     $valor_formatado = number_format($mov['valor'], 2, ',', '.');
@@ -125,6 +156,7 @@ $saldo = $totalEntradas - $totalSaidas;
                                         : "+ R$ $valor_formatado";
                                     ?>
                                 </td>
+                                <!-- Link para excluir registro -->
                                 <td>
                                     <a href="excluir_mov.php?tipo=<?= strtolower($mov['tipo']); ?>&id=<?= $mov['id']; ?>"
                                        onclick="return confirm('Tem certeza que deseja excluir este registro?')">
@@ -134,6 +166,7 @@ $saldo = $totalEntradas - $totalSaidas;
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
+                        <!-- Caso não haja movimentações -->
                         <tr><td colspan="6" style="text-align:center;">Nenhuma movimentação registrada.</td></tr>
                     <?php endif; ?>
                 </tbody>
@@ -142,3 +175,21 @@ $saldo = $totalEntradas - $totalSaidas;
     </div>
 </body>
 </html>
+
+<!--
+Resumo do funcionamento:
+
+Verifica login e nível de acesso do usuário.
+
+Consulta entradas e saídas financeiras no banco de dados.
+
+Junta tudo em um array $movimentacoes e ordena por data (mais recentes primeiro).
+
+Calcula totais de entradas, saídas e saldo.
+
+Mostra tabela com todas as movimentações, incluindo usuário que realizou a ação.
+
+Permite exclusão de registros com confirmação.
+
+Aplica cores e sinais para entradas (+ verde) e saídas (- vermelho).
+-->

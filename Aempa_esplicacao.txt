@@ -1,0 +1,12 @@
+Associação Esportiva Master de Ponte Alta do Tocantins
+
+Stack técnico: PHP (nativo), MySQL (db_aempa), HTML/CSS, JavaScript básico.
+
+Estrutura do projeto: pastas principais — view/ (telas), config/ (conexão ao BD), assets/ (CSS e imagens). O repositório contém .git.
+Funcionalidades implementadas: cadastro de associados, listagem, desativação/reativação, controle de entradas e saídas financeiras, cálculo de saldo, relatórios, login/logout com níveis de acesso.
+Pontos positivos identificados:
+Uso de password_hash / password_verify
+Organização por views e assets com CSS centralizado.
+Projeto versionado com Git e divisão de responsabilidades na equipe.
+
+http://localhost/aempa_php/view/dashboard.php
